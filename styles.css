@@ -1,0 +1,373 @@
+/* ==================== Codeforces Gyms Extension Styles ==================== */
+
+/* ==========================================================================
+   Base Layout & Container
+   ========================================================================== */
+
+.gyms-extension-container {
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   Header Section
+   ========================================================================== */
+
+.gyms-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #1890ff;
+}
+
+.gyms-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5em;
+}
+
+/* Statistics display in header */
+.gyms-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.gyms-stat {
+  background: #f0f7ff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.gyms-stat strong {
+  color: #1890ff;
+  font-size: 1.1em;
+}
+
+/* ==========================================================================
+   Table Styles
+   ========================================================================== */
+
+.gyms-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.gyms-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.gyms-table thead tr {
+  background: #f7f7f7 !important;
+}
+
+.gyms-table th {
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  white-space: nowrap;
+}
+
+.gyms-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.gyms-table tr.even {
+  background-color: #fff;
+}
+
+.gyms-table tr.odd {
+  background-color: #f9f9f9;
+}
+
+.gyms-table tr:hover {
+  background-color: #f0f7ff !important;
+}
+
+/* ==========================================================================
+   Table Column Styles
+   ========================================================================== */
+
+/* Row number column */
+.gyms-th-num,
+.gyms-td-num {
+  width: 40px;
+  text-align: center;
+  color: #888;
+}
+
+/* Contest ID column */
+.gyms-th-id,
+.gyms-td-id {
+  width: 80px;
+}
+
+.gyms-td-id a {
+  color: #1890ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.gyms-td-id a:hover {
+  text-decoration: underline;
+}
+
+/* Contest name column */
+.gyms-th-name,
+.gyms-td-name {
+  min-width: 150px;
+  max-width: 250px;
+}
+
+.gyms-td-name a {
+  color: #333;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.gyms-td-name a:hover {
+  color: #1890ff;
+  text-decoration: underline;
+}
+
+/* Contest type column */
+.gyms-th-type,
+.gyms-td-type {
+  width: 80px;
+  text-align: center;
+}
+
+/* Difficulty column */
+.gyms-th-difficulty,
+.gyms-td-difficulty {
+  width: 80px;
+  text-align: center;
+  color: #ffd700;
+}
+
+/* Total problems column */
+.gyms-th-total,
+.gyms-td-total {
+  width: 100px;
+  text-align: center;
+}
+
+/* Date and duration columns */
+.gyms-th-date,
+.gyms-td-date {
+  width: 110px;
+  white-space: nowrap;
+}
+
+.gyms-th-duration,
+.gyms-td-duration {
+  width: 90px;
+  white-space: nowrap;
+}
+
+/* Solved and submissions columns */
+.gyms-th-solved,
+.gyms-td-solved {
+  width: 80px;
+  text-align: center;
+}
+
+.gyms-th-submissions,
+.gyms-td-submissions {
+  width: 100px;
+  text-align: center;
+  color: #666;
+}
+
+/* ==========================================================================
+   Contest Type Badges
+   ========================================================================== */
+
+.gyms-type-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.gyms-type-icpc {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.gyms-type-ioi {
+  background: #fff7e6;
+  color: #fa8c16;
+}
+
+.gyms-type-cf {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.gyms-type-unknown {
+  background: #f5f5f5;
+  color: #888;
+}
+
+/* ==========================================================================
+   Sorting Functionality
+   ========================================================================== */
+
+.gyms-th-sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+  white-space: pre-line;
+}
+
+.gyms-th-sortable:hover {
+  background-color: #e8e8e8 !important;
+}
+
+.gyms-sort-indicator {
+  font-size: 10px;
+  color: #666;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.gyms-sort-indicator.gyms-sort-active {
+  color: #1890ff;
+}
+
+/* ==========================================================================
+   Problem Count Styling
+   ========================================================================== */
+
+.gyms-solved-count {
+  color: #52c41a;
+  font-weight: 600;
+}
+
+.gyms-attempted-count {
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* ==========================================================================
+   State Displays (Loading, Error, Empty)
+   ========================================================================== */
+
+.gyms-loading {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.gyms-spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 20px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #1890ff;
+  border-radius: 50%;
+  animation: gyms-spin 1s linear infinite;
+}
+
+@keyframes gyms-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.gyms-loading p {
+  color: #666;
+  font-size: 16px;
+}
+
+.gyms-error {
+  text-align: center;
+  padding: 40px 20px;
+  background: #fff2f0;
+  border-radius: 8px;
+  border: 1px solid #ffccc7;
+}
+
+.gyms-error h3 {
+  color: #cf1322;
+  margin-bottom: 10px;
+}
+
+.gyms-error p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.gyms-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.gyms-empty h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.gyms-empty p {
+  color: #888;
+}
+
+/* ==========================================================================
+   Interactive Elements
+   ========================================================================== */
+
+.gyms-btn {
+  background: #1890ff;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.gyms-btn:hover {
+  background: #40a9ff;
+}
+
+/* Tab navigation */
+.gyms-tab-active {
+  font-weight: bold !important;
+  color: #1890ff !important;
+  border-bottom: 2px solid #1890ff;
+  padding-bottom: 2px;
+}
+
+#gyms-tab a {
+  transition: color 0.2s;
+}
+
+#gyms-tab a:hover {
+  color: #1890ff;
+}
