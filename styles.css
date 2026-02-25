@@ -183,6 +183,19 @@
   white-space: nowrap;
 }
 
+/* Rank column */
+.gyms-td-rank {
+  width: 70px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.gyms-participant-total {
+  color: #888;
+  font-size: 0.85em;
+  font-weight: normal;
+}
+
 /* Solved and submissions columns */
 .gyms-th-solved,
 .gyms-td-solved {

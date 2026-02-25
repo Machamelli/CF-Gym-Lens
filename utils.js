@@ -98,6 +98,10 @@
           valA = a.duration || 0;
           valB = b.duration || 0;
           break;
+        case "rank":
+          valA = a.rank || Infinity;
+          valB = b.rank || Infinity;
+          break;
         case "solved":
           // Sort by number of solved problems, not attempted
           valA = a.solvedProblems.size;
@@ -149,6 +153,7 @@
       type: "Type",
       date: "Publish Date",
       duration: "Duration",
+      rank: "Rank",
       solved: "Solved",
       submissions: "Submissions",
       total: "Total Problems",

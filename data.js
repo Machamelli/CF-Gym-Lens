@@ -37,6 +37,9 @@
           solvedProblems: new Set(),
           attemptedProblems: new Set(),
           totalSubmissions: 0,
+          rank: null,
+          participantCount: null,
+          participated: false,
           lastSubmissionTime: submission.creationTimeSeconds,
         });
       }
@@ -44,6 +47,11 @@
       const gym = gymsMap.get(contestId);
       gym.totalSubmissions++;
       gym.attemptedProblems.add(submission.problem.index);
+
+      // Track participation (not just PRACTICE)
+      if (submission.author.participantType !== "PRACTICE") {
+        gym.participated = true;
+      }
 
       if (submission.verdict === "OK") {
         gym.solvedProblems.add(submission.problem.index);
@@ -62,20 +70,39 @@
   }
 
   /**
-   * Fetch total problem counts for gyms that don't have them
+   * Fetch total problem counts and rank for gyms
+   * @param {Array} gyms - Array of gym objects
+   * @param {string} handle - User's handle
    */
-  async function fetchProblemCounts(gyms) {
+  async function fetchProblemCounts(gyms, handle) {
     const gymsToFetch = gyms.filter((gym) => gym.totalProblems === null);
 
     for (const gym of gymsToFetch) {
       try {
-        const res = await fetch(
-          `${CONFIG.API_BASE_URL}/contest.standings?contestId=${gym.id}&from=1&count=1`,
+        // Call 1: Fetch user-specific standings to get rank and problems list
+        const standings = await window.GymsExtension.api.fetchContestStandings(
+          gym.id,
+          gym.participated ? handle : null,
         );
-        const data = await res.json();
-        gym.totalProblems = data.result.problems.length;
+
+        gym.totalProblems = (standings.problems || []).length;
+        if (gym.participated && standings.rows && standings.rows.length > 0) {
+          gym.rank = standings.rows[0].rank;
+        }
+
+        // Call 2: Fetch full standings (up to 10k) to get total participant count
+        const totalStats = await window.GymsExtension.api.fetchContestStandings(
+          gym.id,
+          null, // No handle filter
+          1,
+          10000,
+        );
+
+        if (totalStats && totalStats.rows) {
+          gym.participantCount = totalStats.rows.length;
+        }
       } catch (e) {
-        gym.totalProblems = 0;
+        gym.totalProblems = 0; // fallback if standings fetch fails
       }
     }
   }

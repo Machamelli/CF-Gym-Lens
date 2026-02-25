@@ -111,7 +111,7 @@
 
       try {
         const gyms = await window.GymsExtension.data.getGymsData(this.username);
-        await window.GymsExtension.data.fetchProblemCounts(gyms);
+        await window.GymsExtension.data.fetchProblemCounts(gyms, this.username);
 
         // Store gyms data for sorting
         this.gymsData = gyms;

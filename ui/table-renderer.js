@@ -36,6 +36,7 @@
           <th class="gyms-th-type gyms-th-sortable" data-sort="type" title="${getSortTooltip("type", currentSort)}">Type${getSortIndicator("type", currentSort)}</th>
           <th class="gyms-th-date gyms-th-sortable" data-sort="date" title="${getSortTooltip("date", currentSort)}">Publish Date${getSortIndicator("date", currentSort)}</th>
           <th class="gyms-th-duration gyms-th-sortable" data-sort="duration" title="${getSortTooltip("duration", currentSort)}">Duration${getSortIndicator("duration", currentSort)}</th>
+          <th class="gyms-th-rank gyms-th-sortable" data-sort="rank" title="${getSortTooltip("rank", currentSort)}">Rank${getSortIndicator("rank", currentSort)}</th>
           <th class="gyms-th-solved gyms-th-sortable" data-sort="solved" title="${getSortTooltip("solved", currentSort)}">Solved${getSortIndicator("solved", currentSort)}</th>
           <th class="gyms-th-submissions gyms-th-sortable" data-sort="submissions" title="${getSortTooltip("submissions", currentSort)}">Submissions${getSortIndicator("submissions", currentSort)}</th>
           <th class="gyms-th-total gyms-th-sortable" data-sort="total" title="${getSortTooltip("total", currentSort)}">Total Problems${getSortIndicator("total", currentSort)}</th>
@@ -67,6 +68,10 @@
         </td>
         <td class="gyms-td-date">${formatDate(gym.startTime)}</td>
         <td class="gyms-td-duration">${formatDuration(gym.duration)}</td>
+        <td class="gyms-td-rank">
+          ${gym.rank || "-"}
+          ${gym.rank && gym.participantCount ? `<span class="gyms-participant-total">/ ${gym.participantCount}</span>` : ""}
+        </td>
         <td class="gyms-td-solved">
           <span class="gyms-solved-count">${gym.solvedProblems.size}</span>
           <span class="gyms-attempted-count">/ ${gym.attemptedProblems.size}</span>
