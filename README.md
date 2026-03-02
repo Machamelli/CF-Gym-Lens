@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="#">
+  <a href="https://addons.mozilla.org/en-US/firefox/addon/cf-gym-lens/">
     <img src="https://img.shields.io/badge/Firefox-Install-FF7139?style=for-the-badge&logo=firefox-browser" alt="Firefox Add-on">
   </a>
   &nbsp;
@@ -28,6 +28,7 @@
 
 - 🏋️ **Gyms Tab**: Adds a new tab to Codeforces user profiles
 - 📊 **Comprehensive Data**: Shows contest name, type, publish date, duration, solved/total problems, submissions, and difficulty
+- 🏆 **Contest Rankings**: View rank and total participants for each contest
 - 🔄 **Sortable Columns**: Click any column header to sort the data
 - 🔗 **Direct Links**: Click any gym to navigate directly to the contest page
 
@@ -53,7 +54,7 @@
 
 ### Firefox
 
-1. Visit the [Firefox Add-ons page](#)
+1. Visit the [Firefox Add-ons page](https://addons.mozilla.org/en-US/firefox/addon/cf-gym-lens/)
 2. Click "Add to Firefox"
 3. Confirm the installation
 

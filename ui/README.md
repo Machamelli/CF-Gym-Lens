@@ -53,6 +53,7 @@ The main `ui.js` file (in the root directory) acts as a **Facade**, providing a 
 - Type
 - Publish Date
 - Duration
+- Rank
 - Solved
 - Submissions
 - Total Problems

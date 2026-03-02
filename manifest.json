@@ -1,17 +1,15 @@
 {
   "manifest_version": 3,
   "name": "CF Gym Lens",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Adds a Gyms tab to Codeforces user profiles showing gym participation history",
   "author": "Machamelli",
   "homepage_url": "https://github.com/Machamelli/CF-Gym-Lens",
-
   "icons": {
     "48": "assets/icons/icon-48.png",
     "96": "assets/icons/icon-96.png",
     "128": "assets/icons/icon-128.png"
   },
-
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": {
@@ -21,7 +19,6 @@
     },
     "default_title": "CF Gym Lens"
   },
-
   "content_scripts": [
     {
       "matches": [
@@ -40,17 +37,22 @@
         "controller.js",
         "content.js"
       ],
-      "css": ["styles.css"],
+      "css": [
+        "styles.css"
+      ],
       "run_at": "document_end"
     }
   ],
-
   "permissions": [],
-
   "browser_specific_settings": {
     "gecko": {
       "id": "codeforces-gyms@example.com",
-      "strict_min_version": "57.0"
+      "strict_min_version": "58.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
     }
   }
 }
